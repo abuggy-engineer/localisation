@@ -37,10 +37,9 @@
 
         
         <!-- If you choose to define initial pose here -->
-        <!--
-        <param name="initial_pose_x" value="2"/>
-        <param name="initial_pose_y" value="-4"/>
-        -->
+        <param name="initial_pose_x" value="-4"/>
+        <param name="initial_pose_y" value="-2"/>
+        <param name="initial_pose_a" value="-1.5708"/>
         
         
     </node>
