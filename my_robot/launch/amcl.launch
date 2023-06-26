@@ -17,14 +17,15 @@
         <!-- Overall Filter -->
         <param name="static_map" value="true"/>
         <param name="min_particles" value="50"/>
-        <param name="max_particles" value="200"/>
-        <param name="update_min_a" value="0.5"/>
-        <param name="update_min_d" value="3.14/15"/>
+        <param name="max_particles" value="5000"/>
+        <param name="update_min_a" value="0.5236"/>
+        <param name="update_min_d" value="0.2"/>
 
         <!-- Laser -->
-        <param name="laser_min_range" value="-0.5"/>
-        <param name="laser_max_range" value="-4.0"/>
-        <param name="laser_max_beams" value="20"/>
+        <param name="laser_model_type" value="likelihood_field"/>
+        <param name="laser_min_range" value="-1.0"/>
+        <param name="laser_max_range" value="-1.0"/>
+        <param name="laser_max_beams" value="30"/>
         <param name="laser_z_hit" value="0.95"/>
         <param name="laser_z_rand" value="0.05"/>
         
@@ -42,7 +43,27 @@
         <param name="initial_pose_a" value="-1.5708"/>
         
         
+        
     </node>
+
+    <!-- Move base -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find my_robot)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find my_robot)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find my_robot)/config/base_local_planner_params.yaml" command="load" />
+    <remap from="scan" to="/scan"/>
+    <remap from="cmd_vel" to="cmd_vel"/>
+    <remap from="odom" to="odom"/>
+
+    <param name="base_global_planner" type="string" value="navfn/NavfnROS" />
+    <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
+
+
+  </node>
+     
+    
+    
 
 </launch>
 
