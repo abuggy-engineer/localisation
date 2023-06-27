@@ -18,6 +18,7 @@
         <param name="static_map" value="true"/>
         <param name="min_particles" value="50"/>
         <param name="max_particles" value="5000"/>
+
         <param name="update_min_a" value="0.2618"/>
         <param name="update_min_d" value="0.05"/>
         <param name="resample_interval" value="2"/>
@@ -28,6 +29,7 @@
         <param name="laser_model_type" value="likelihood_field"/>
         <param name="laser_min_range" value="-1.0"/>
         <param name="laser_max_range" value="-1.0"/>
+
         <param name="laser_max_beams" value="60"/>
         <param name="laser_z_hit" value="0.8"/>
         <param name="laser_z_rand" value="0.2"/>
